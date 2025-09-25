@@ -1,17 +1,20 @@
-// src/components/common/CountryCard.jsx
 import React from "react";
-import Card from "react-bootstrap/Card";
+// import Card from "react-bootstrap/Card";
 
-const CountryCard = ({ name, flag, region }) => {
+function CountryCard({ name, region, flag }) {
   return (
-    <Card className="h-100 shadow-sm">
-      <Card.Img variant="top" src={flag} alt={`${name} flag`} />
-      <Card.Body>
-        <Card.Title>{name}</Card.Title>
-        <Card.Text>Region: {region}</Card.Text>
-      </Card.Body>
-    </Card>
+    <div className="px-card">
+      <div className="px-card__thumb">
+        <img src={flag} alt={`${name} flag`} />
+      </div>
+      <div className="px-card__body">
+        <div className="px-card__title">{name}</div>
+        <div className="px-card__subtitle">
+          Region: <span className="px-muted">{region}</span>
+        </div>
+      </div>
+    </div>
   );
-};
+}
 
 export default CountryCard;

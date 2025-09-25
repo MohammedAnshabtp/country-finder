@@ -1,23 +1,22 @@
-// src/components/common/CountryFilter.jsx
 import React from "react";
-import { Form } from "react-bootstrap";
 
-const regions = ["All", "Asia", "Europe", "Africa", "Americas", "Oceania"];
-
-const CountryFilter = ({ onFilter }) => {
+function CountryFilter({ value, onChange }) {
+  const regions = ["All", "Asia", "Europe"];
   return (
-    <Form.Select
-      className="mb-4"
-      onChange={(e) => onFilter(e.target.value)}
-      aria-label="Filter by region"
-    >
+    <div className="px-filter">
       {regions.map((r) => (
-        <option key={r} value={r}>
+        <button
+          key={r}
+          className={`px-filter__btn ${
+            value === r ? "px-filter__btn--active" : ""
+          }`}
+          onClick={() => onChange(r)}
+        >
           {r}
-        </option>
+        </button>
       ))}
-    </Form.Select>
+    </div>
   );
-};
+}
 
 export default CountryFilter;
